@@ -1,0 +1,25 @@
+version: "2.0"
+services:
+    rnd_melodic:
+        image: rnd1_v2:melodic
+        volumes:
+            - /tmp/.X11-unix:/tmp/.X11-unix:rw
+            - $HOME/.Xauthority:/root/.Xauthority:rw
+            - ./../src:/home/ros_user/src
+            # The volume tag connect a local folder to a location in the container  
+            
+    
+     
+
+        environment:
+            - DISPLAY=$DISPLAY
+            - QT_X11_NO_MITSHM=1
+            
+
+        runtime: nvidia
+        
+        devices:
+            - /dev/dri:/dev/dri
+        privileged: true
+        tty: true
+        network_mode: "host"

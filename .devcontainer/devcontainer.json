@@ -1,0 +1,13 @@
+{
+	"name": "RnD_v2 melodic Docker Environment",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "rnd_melodic",
+	"workspaceFolder": "/home/ros_user/",
+	"shutdownAction": "stopCompose",
+	"extensions":[
+		"ms-vsliveshare.vsliveshare",
+		"ms-python.vscode-pylance",
+		"ms-python.python",
+		"njpwerner.autodocstring"
+	]
+}
