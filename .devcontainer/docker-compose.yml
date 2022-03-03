@@ -1,7 +1,7 @@
 version: "2.0"
 services:
-    rnd_melodic:
-        image: rnd1_v2:melodic
+    rnd_noetic:
+        image: rnd_v2:noetic
         volumes:
             - /tmp/.X11-unix:/tmp/.X11-unix:rw
             - $HOME/.Xauthority:/root/.Xauthority:rw

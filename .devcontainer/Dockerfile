@@ -1,9 +1,10 @@
-FROM bitbots/bitbots-common:melodic
+FROM osrf/ros:noetic-desktop-full
 
-#USER root
-#RUN apt-get update && apt install -y python-pip python-catkin-tools ros-kinetic-cv-bridge git wget
-# RUN apt-get install -y ros-kinetic-turtlebot-msgs ros-kinetic-turtlebot ros-kinetic-openslam-gmapping ros-kinetic-map-server ros-kinetic-moveit
-#RUN pip install osrf-pycommon
+
+USER root
+RUN apt-get update && apt install -y python3-pip python3-catkin-tools ros-noetic-cv-bridge git wget
+#RUN apt-get install -y ros-noetic-turtlebot-msgs ros-kinetic-turtlebot ros-kinetic-openslam-gmapping ros-kinetic-map-server ros-kinetic-moveit
+RUN pip install osrf-pycommon
 
 
 # nvidia-container-runtime
@@ -25,6 +26,13 @@ RUN useradd -m -s /bin/bash -N -u $UID $UNAME && \
     mkdir -p $WS_DIR/src &&\
     chown $UNAME:$GID -R $WS_DIR
 
+USER $UNAME
+WORKDIR $WS_DIR/src
+RUN git clone https://github.com/malwaru/ROS_basics_FC.git
+WORKDIR $WS_DIR
+RUN catkin init
+RUN catkin config --extend /opt/ros/noetic/
+RUN catkin build
 RUN echo "source $WS_DIR/devel/setup.bash" >> /home/$UNAME/.bashrc
 
 CMD /bin/bash

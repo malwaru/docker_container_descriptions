@@ -1,7 +1,7 @@
 {
-	"name": "RnD_v2 melodic Docker Environment",
+	"name": "RnD_v2 noetic Docker Environment",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "rnd_melodic",
+	"service": "rnd_noetic",
 	"workspaceFolder": "/home/ros_user/",
 	"shutdownAction": "stopCompose",
 	"extensions":[
