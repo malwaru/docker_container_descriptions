@@ -1,11 +1,15 @@
-FROM osrf/ros:noetic-desktop-full
-
+FROM osrf/ros:humble-desktop-full
 
 USER root
-RUN apt-get update && apt install -y python3-pip python3-catkin-tools ros-noetic-cv-bridge git wget
-#RUN apt-get install -y ros-noetic-turtlebot-msgs ros-kinetic-turtlebot ros-kinetic-openslam-gmapping ros-kinetic-map-server ros-kinetic-moveit
-RUN pip install osrf-pycommon
+RUN update && sudo apt install locales
+RUN  locale-gen en_US en_US.UTF-8
+RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+RUN export LANG=en_US.UTF-8
 
+RUN apt install software-properties-common
+RUN add-apt-repository universe
+
+RUN apt update && apt upgrade
 
 # nvidia-container-runtime
 ENV NVIDIA_VISIBLE_DEVICES \
@@ -15,8 +19,8 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
 
 
 
-ARG UNAME=ros_user
-ARG WS_DIR=/home/$UNAME/catkin_ws
+ARG UNAME=humble_user
+ARG WS_DIR=/home/$UNAME/humble_ws
 ARG UID=1000
 ARG GID=1000
 RUN groupadd -g $GID -o $UNAME
@@ -30,10 +34,10 @@ USER $UNAME
 WORKDIR $WS_DIR/src
 RUN git clone https://github.com/malwaru/ROS_basics_FC.git
 WORKDIR $WS_DIR
-RUN catkin init
-RUN catkin config --extend /opt/ros/noetic/
-RUN catkin build
-RUN echo "source $WS_DIR/devel/setup.bash" >> /home/$UNAME/.bashrc
+# RUN catkin init
+# RUN catkin config --extend /opt/ros/noetic/
+# RUN catkin build
+# RUN echo "source $WS_DIR/devel/setup.bash" >> /home/$UNAME/.bashrc
 
 CMD /bin/bash
 

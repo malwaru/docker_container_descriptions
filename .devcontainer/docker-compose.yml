@@ -1,13 +1,12 @@
 version: "2.0"
 services:
-    rnd_noetic:
-        image: rnd_v2:noetic
+    rnd_humble:
+        image: rnd_v2:humble
         volumes:
             - /tmp/.X11-unix:/tmp/.X11-unix:rw
             - $HOME/.Xauthority:/root/.Xauthority:rw
-            - ./../src:/home/ros_user/src
-            # The volume tag connect a local folder to a location in the container  
-            
+            - ./../src:/home/humble_user/src
+           
     
      
 

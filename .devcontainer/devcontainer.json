@@ -1,8 +1,8 @@
 {
-	"name": "RnD_v2 noetic Docker Environment",
+	"name": "RnD_v2 humble Docker Environment",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "rnd_noetic",
-	"workspaceFolder": "/home/ros_user/",
+	"service": "rnd_humble",
+	"workspaceFolder": "/home/humble_user/",
 	"shutdownAction": "stopCompose",
 	"extensions":[
 		"ms-vsliveshare.vsliveshare",
