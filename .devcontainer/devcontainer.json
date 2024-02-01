@@ -1,8 +1,8 @@
 {
-	"name": "RnD_v2 humble Docker Environment",
+	"name": "DFKI foxy Docker Environment",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "rnd_humble",
-	"workspaceFolder": "/home/humble_user/",
+	"service": "dfki_foxy",
+	"workspaceFolder": "/home/foxy_user/",
 	"shutdownAction": "stopCompose",
 	"extensions":[
 		"ms-vsliveshare.vsliveshare",

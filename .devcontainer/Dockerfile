@@ -1,15 +1,16 @@
-FROM osrf/ros:humble-desktop-full
+FROM ros:foxy
 
 USER root
-RUN update && sudo apt install locales
+RUN sudo apt update
+RUN sudo apt install locales
 RUN  locale-gen en_US en_US.UTF-8
 RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 RUN export LANG=en_US.UTF-8
 
-RUN apt install software-properties-common
-RUN add-apt-repository universe
+# RUN sudo apt install software-properties-common
+# RUN sudo add-apt-repository universe
 
-RUN apt update && apt upgrade
+# RUN apt update && apt upgrade
 
 # nvidia-container-runtime
 ENV NVIDIA_VISIBLE_DEVICES \
@@ -19,8 +20,8 @@ ENV NVIDIA_DRIVER_CAPABILITIES \
 
 
 
-ARG UNAME=humble_user
-ARG WS_DIR=/home/$UNAME/humble_ws
+ARG UNAME=foxy_user
+ARG WS_DIR=/home/$UNAME/foxy_ws
 ARG UID=1000
 ARG GID=1000
 RUN groupadd -g $GID -o $UNAME
@@ -34,6 +35,8 @@ USER $UNAME
 WORKDIR $WS_DIR/src
 RUN git clone https://github.com/malwaru/ROS_basics_FC.git
 WORKDIR $WS_DIR
+WORKDIR /home/$UNAME
+RUN mkdir src
 # RUN catkin init
 # RUN catkin config --extend /opt/ros/noetic/
 # RUN catkin build

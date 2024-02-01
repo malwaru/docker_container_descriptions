@@ -1,10 +1,10 @@
 # RnD_docker_container_descriptions
 
-The Docker container with ROS melodic and B-it Bots repository
+The Docker container with ROS foxy 
 
 # ros-pybullet-development-container
 
-1. First build the container image with `docker build -f .devcontainer/Dockerfile -t rnd_v2:melodic .` 
+1. First build the container image with `docker build -f .devcontainer/Dockerfile -t dfki:foxy .` 
 3. Install the extension `ms-vscode-remote.remote-containers`
 2. Open the folder `ros-pybullet-development-container` with vscode. 
 3. If an alert pops up about the folder containing a Dev Container configuration use this to open the folder in the container -> Done

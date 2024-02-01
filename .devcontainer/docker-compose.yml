@@ -1,21 +1,17 @@
 version: "2.0"
 services:
-    rnd_humble:
-        image: rnd_v2:humble
+    dfki_foxy:
+        image: dfki:foxy
         volumes:
             - /tmp/.X11-unix:/tmp/.X11-unix:rw
             - $HOME/.Xauthority:/root/.Xauthority:rw
-            - ./../src:/home/humble_user/src
-           
-    
-     
-
+            - ./../src:/home/foxy_user/src
         environment:
             - DISPLAY=$DISPLAY
             - QT_X11_NO_MITSHM=1
             
 
-        runtime: nvidia
+        # runtime: nvidia
         
         devices:
             - /dev/dri:/dev/dri
