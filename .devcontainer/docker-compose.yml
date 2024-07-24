@@ -9,10 +9,8 @@ services:
         environment:
             - DISPLAY=$DISPLAY
             - QT_X11_NO_MITSHM=1
-            
-
-        # runtime: nvidia
-        
+            - NVIDIA_DRIVER_CAPABILITIES=all
+        runtime: nvidia        
         devices:
             - /dev/dri:/dev/dri
         privileged: true

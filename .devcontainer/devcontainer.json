@@ -9,5 +9,6 @@
 		"ms-python.vscode-pylance",
 		"ms-python.python",
 		"njpwerner.autodocstring"
-	]
+	],
+	"runArgs": ["--gpus", "all"] 
 }
